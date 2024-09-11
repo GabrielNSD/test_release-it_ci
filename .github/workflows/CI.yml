@@ -51,3 +51,5 @@ jobs:
           git config --global user.name "Release Workflow"
       - name: Run release-it
         run: npm run release --ci
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
