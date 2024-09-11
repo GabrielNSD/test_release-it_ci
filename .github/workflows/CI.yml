@@ -72,7 +72,7 @@ jobs:
       - name: Run release-it
         run: |
           if [ "${{ needs.check_version.outputs.contains_version }}" == "true" ]; then
-            npm run release --ci --version=${{ needs.check_version.outputs.version_number }}
+            npm run release ${{ needs.check_version.outputs.version_number }}
           else
             npm run release --ci
           fi
