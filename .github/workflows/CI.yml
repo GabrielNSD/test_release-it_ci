@@ -45,11 +45,14 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Install release-it
+        run: npm install --global release-it
+
       - name: Initialize Git user
         run: |
           git config --global user.email "gabriel@test.email"
           git config --global user.name "Release Workflow"
       - name: Run release-it
-        run: npm run release --only-version
+        run: npx release-it --only-version
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
