@@ -36,12 +36,11 @@ jobs:
         run: |
           if [[ "${{ github.event.head_commit.message }}" =~ ([0-9]+\.[0-9]+\.[0-9]+) ]]; then
             echo "Commit message contains a version number."
-            echo "{contains_version}={true}" >> $GITHUB_OUTPUT
-            echo "{version_number}=${BASH_REMATCH[1]}" >> $GITHUB_OUTPUT
+            echo "contains_version=true" >> $GITHUB_OUTPUT
+            echo "version_number=${BASH_REMATCH[1]}" >> $GITHUB_OUTPUT
           else
             echo "Commit message does not contain a version number."
-            echo "{contains_version}={false}" >> GITHUB_OUTPUT
-            echo "::set-output name=contains_version::false"
+            echo "contains_version=false" >> GITHUB_OUTPUT
           fi
 
   release:
