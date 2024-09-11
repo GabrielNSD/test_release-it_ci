@@ -50,6 +50,6 @@ jobs:
           git config --global user.email "gabriel@test.email"
           git config --global user.name "Release Workflow"
       - name: Run release-it
-        run: npm run release --ci 1.1.0
+        run: npm run release --ci --only-version
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
